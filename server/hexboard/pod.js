@@ -29,7 +29,7 @@ var listWatchAgent = new http.Agent({
 
 var verifyAgent = new http.Agent({
   keepAlive: true,
-  maxSockets: 5
+  maxSockets: 50
 });
 
 var environment = {
@@ -254,7 +254,7 @@ var verifyStream = function(env) {
       return Rx.Observable.merge(
         Rx.Observable.just(parsed)
       , verifyPodAvailable(parsed, 20000)
-        .retryWhen(retryVerification(5))
+        .retryWhen(retryVerification(50))
         .catch(Rx.Observable.empty())
         .filter(function(parsed) {
           return parsed;
@@ -297,7 +297,7 @@ var watchStream = function(env, stream) {
     })
     .flatMap(function(pod) {
       return Rx.Observable.return(pod).flatMap(function(pod) {
-        return verifyPodAvailable(pod, 2000)
+        return verifyPodAvailable(pod, 20000)
         .tap(function(pod) {
           var subject = env.subjects[pod.data.id];
           if (pod.data.stage !== 5) {
@@ -321,12 +321,12 @@ var watchStream = function(env, stream) {
           }
         })
       })
-      .retryWhen(retryVerification(10))
+      .retryWhen(retryVerification(50))
       .catch(Rx.Observable.return(pod));
     })
-    // .subscribeOnError(function(err) {
-    //   console.log(error);
-    // });
+    .subscribeOnError(function(err) {
+       console.log(err);
+    });
 };
 
 module.exports = {
