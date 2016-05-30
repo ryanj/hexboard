@@ -42,7 +42,7 @@
     "http-proxy": "^1.13.2",
     "jquery": "^2.2.1",
     "morgan": "^1.7.0",
-    "netmask": "^1.0.5",
+    "netmask": "^1.0.6",
     "numeral": "^1.5.3",
     "patternfly": "^3.3.4",
     "q": "^2.0.3",
