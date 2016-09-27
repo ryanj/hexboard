@@ -36,7 +36,7 @@
     "body-parser": "^1.15.0",
     "bootstrap": "^3.3.6",
     "config-multipaas": "^0.2.1",
-    "d3": "^3.5.16",
+    "d3": "^4.2.6",
     "debuglog": "^1.0.1",
     "express": "^4.13.4",
     "http-proxy": "^1.13.2",
