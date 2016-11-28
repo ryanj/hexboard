@@ -13,7 +13,7 @@
   "devDependencies": {
     "node-inspector": "^0.9.2",
     "should": "^5.2.0",
-    "superagent": "^1.2.0",
+    "superagent": "^3.1.0",
     "supertest": "^0.15.0",
     "gulp": "^3.8.11",
     "gulp-connect": "^2.2.0",
